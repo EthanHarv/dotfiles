@@ -1,5 +1,6 @@
 # A Simple BSPWM Setup
 
+Much of this is blatantly plagarized from various r/unixporn dotfile repos. If I could remember which ones I used I'd credit them, but I don't, so just be aware most of this isn't my work.
 ## Installation (assumes Ubuntu 21.10 or similar)
 
 Install the required packages:
@@ -20,12 +21,12 @@ Install RobotoMono and Iosevka from [here](https://github.com/ryanoasis/nerd-fon
 
 Restart, use settings cog on login page to switch to BSPWM
 
-To get a desktop background, download an image to some directory, and then do `nitrogen /path/to/directory` and select the image. Whatever you choose will be kept on future restarts.
+To get a desktop background, download an image to some directory, and then do `nitrogen /path/to/image/directory` and select the image. Whatever you choose will be kept on future restarts.
 
-To get the lockscreen to work first we need to compile `i3lock-color`. Download and unzip the latest source code release from [the release page](https://github.com/Raymo111/i3lock-color/releases/), and install the required dependencies.
+To get the lockscreen to work first we need to compile `i3lock-color`. Download and unzip the latest source code release from [the release page](https://github.com/Raymo111/i3lock-color/releases/), and install the required dependencies (or clone it, but that may include bugs).
 
 ```bash
-sudo apt install autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
+sudo apt install imagemagick autoconf gcc make pkg-config libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxcb-xtest0-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 ```
 
 Then, cd into the repo and install
@@ -40,7 +41,15 @@ Then, clone the [betterlockscreen repo](https://github.com/betterlockscreen/bett
 ```bash
 cd betterlockscreen
 chmod +x install.sh
-./install.sh user
+sudo ./install.sh system
 ```
 
-(Change system to user if you only want it installed for you)
+(Change "system" to "user" if you only want it installed for you. I've had issues with that working though, so explore at your own risk.)
+
+Then, set the image with
+
+```bash
+betterlockscreen -u /path/to/image
+```
+
+Done!
