@@ -1,6 +1,9 @@
 # A Simple BSPWM Setup
 
 Much of this is blatantly plagarized from various r/unixporn dotfile repos. If I could remember which ones I used I'd credit them, but I don't, so just be aware most of this isn't my work.
+
+This also isn't what I use anymore, I moved to another distro.
+
 ## Installation (assumes Ubuntu 21.10 or similar)
 
 Install the required packages:
